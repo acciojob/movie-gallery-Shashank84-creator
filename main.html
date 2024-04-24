@@ -7,36 +7,36 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-1"><img src="https://via.placeholder.com/100x100.png?text=Movie+1" class="img-fluid" alt="Movie 1"></div>
-            <div class="col-sm-1"><img src="https://via.placeholder.com/100x100.png?text=Movie+2" class="img-fluid" alt="Movie 2"></div>
-            <div class="col-sm-1"><img src="https://via.placeholder.com/100x100.png?text=Movie+3" class="img-fluid" alt="Movie 3"></div>
-            <div class="col-sm-1"><img src="https://via.placeholder.com/100x100.png?text=Movie+4" class="img-fluid" alt="Movie 4"></div>
-            <div class="col-sm-1"><img src="https://via.placeholder.com/100x100.png?text=Movie+5" class="img-fluid" alt="Movie 5"></div>
-            <div class="col-sm-1"><img src="https://via.placeholder.com/100x100.png?text=Movie+6" class="img-fluid" alt="Movie 6"></div>
-            <div class="col-sm-1"><img src="https://via.placeholder.com/100x100.png?text=Movie+7" class="img-fluid" alt="Movie 7"></div>
-            <div class="col-sm-1"><img src="https://via.placeholder.com/100x100.png?text=Movie+8" class="img-fluid" alt="Movie 8"></div>
-            <div class="col-sm-1"><img src="https://via.placeholder.com/100x100.png?text=Movie+9" class="img-fluid" alt="Movie 9"></div>
-            <div class="col-sm-1"><img src="https://via.placeholder.com/100x100.png?text=Movie+10" class="img-fluid" alt="Movie 10"></div>
-            <div class="col-sm-1"><img src="https://via.placeholder.com/100x100.png?text=Movie+11" class="img-fluid" alt="Movie 11"></div>
-            <div class="col-sm-1"><img src="https://via.placeholder.com/100x100.png?text=Movie+12" class="img-fluid" alt="Movie 12"></div>
-        </div>
-        <div class="row">
-            <div class="col-sm-2"><img src="https://via.placeholder.com/100x100.png?text=Movie+13" class="img-fluid" alt="Movie 13"></div>
-            <div class="col-sm-2"><img src="https://via.placeholder.com/100x100.png?text=Movie+14" class="img-fluid" alt="Movie 14"></div>
-            <div class="col-sm-2"><img src="https://via.placeholder.com/100x100.png?text=Movie+15" class="img-fluid" alt="Movie 15"></div>
-            <div class="col-sm-2"><img src="https://via.placeholder.com/100x100.png?text=Movie+16" class="img-fluid" alt="Movie 16"></div>
-            <div class="col-sm-2"><img src="https://via.placeholder.com/100x100.png?text=Movie+17" class="img-fluid" alt="Movie 17"></div>
-            <div class="col-sm-2"><img src="https://via.placeholder.com/100x100.png?text=Movie+18" class="img-fluid" alt="Movie 18"></div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4"><img src="https://via.placeholder.com/100x100.png?text=Movie+19" class="img-fluid" alt="Movie 19"></div>
-            <div class="col-sm-4"><img src="https://via.placeholder.com/100x100.png?text=Movie+20" class="img-fluid" alt="Movie 20"></div>
-            <div class="col-sm-4"><img src="https://via.placeholder.com/100x100.png?text=Movie+21" class="img-fluid" alt="Movie 21"></div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12"><img src="https://via.placeholder.com/100x100.png?text=Movie+22" class="img-fluid" alt="Movie 22"></div>
-        </div>
+        <!-- Movie rows -->
+        <div id="movieRows"></div>
     </div>
+
+    <script>
+        // Sample movie data
+        const movies = [
+            { id: 1, title: 'Movie 1' },
+            { id: 2, title: 'Movie 2' },
+            // ... add more movie objects
+        ];
+
+        // Generate movie row HTML
+        const generateMovieRow = (movies) => {
+            return `
+                <div class="row">
+                    ${movies.map(movie => `
+                        <div class="col-sm-1">
+                            <img src="https://via.placeholder.com/100x100.png?text=${movie.title}" class="img-fluid" alt="${movie.title}">
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        };
+
+        // Create movie rows
+        const movieRows = document.getElementById('movieRows');
+        movieRows.innerHTML = generateMovieRow(movies.slice(0, 12)); // First row
+        movieRows.innerHTML += generateMovieRow(movies.slice(12, 16)); // Second row
+        movieRows.innerHTML += generateMovieRow(movies.slice(16, 22)); // Third row
+    </script>
 </body>
 </html>
